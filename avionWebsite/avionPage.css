@@ -16,3 +16,30 @@ html {
     width:100%;
   
 }
+nav{
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    opacity: 90%;
+    margin: auto;
+    vertical-align: middle;
+    /*position: -webkit-sticky; /* Safari */
+    /*position: sticky;*/
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.575);
+    z-index: 10;
+    top: 0;
+}
+
+nav>a {
+    float: right;
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    color: white;
+    text-decoration: none;
+    border-bottom: solid 2px rgb(202, 111, 0);
+    display: inline;
+    padding-bottom: 10px;
+}
