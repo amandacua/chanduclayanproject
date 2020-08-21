@@ -38,16 +38,20 @@
 
         <div id="aboutPage">
             <h1 class = "aboutTitle">Become a software engineer in 12 weeks</h1><br>
-            <p class = "aboutSubTitle">Pay only when you're hired</p>
-            <p class = "aboutCaption">Learn the fundamentals of writing code and the skills of the best software engineers. We teach you how to build software, work with teams and apply for top software jobs.</p>
-        
+            <div class = "aboutContainer">                  
+                <p class = "aboutSubTitle"> Pay only when you're hired.</p>
+                <p class = "aboutDescription"> Learn the fundamentals of writing code and the skills of the best software engineers. We teach you how to build software, work with teams and apply for top software jobs. </p>
+            </div>        
         </div>
     
         <div id = "curriculum">
-            <h1 class = "curriculumTitle">How the Course Works</h1>
-            <p class = "curriculumDescription"> We train you the best practices in software development and provide you with the relevant classes to prepare you for real world needs. Classes are taught by industry experts and is structured to ensure you learn what is required to become a successful software engineer.</p>
+
+            <div class = "curriculumContainer">
+                <h1 class = "curriculumTitle">How the Course Works</h1>
+                <p class = "curriculumDescription"> We train you the best practices in software development and provide you with the relevant classes to prepare you for real world needs. Classes are taught by industry experts and is structured to ensure you learn what is required to become a successful software engineer.</p>    
+            </div>
+
             <div class = "curriculumStructure">
-                <!--Insert List of Course Here-->
                 <li>Programming Fundamentals</li>
                 <li>Web Foundations</li>
                 <li>Web Application Development</li>
@@ -55,6 +59,7 @@
                 <li>Backend Development</li>
                 <li>Career Transitioning</li>
             </div>
+            
         </div>
     
         <div id = "statement">
@@ -62,10 +67,20 @@
             <p class="plaza">- Francis Plaza, CEO of PayMongo</p>
         </div>
     
- 
+            
         <div id = "students">
-            <p class="studentSays1">"SO GOOD. MUCH WOW!" -Dominique Duclayan 2020 Batch 2 Student</p>
-            <p class="stidentSays2">"10/10 would study here again! -Stephen Chan 2020 Batch 2 Student"</p>
+            <div class="studDiv">
+                <div class="domPic">
+                    <img src=".png" />
+                </div>
+                <p class="stud1"><q>SO GOOD. MUCH WOW!</q> <br>-Dominique Duclayan 2020 Batch 2 Student<br><br></p>
+               
+                <div class="stepPic">
+                    <img src="dp.png" />
+                </div>
+                <p class="stud2"><q>10/10 would study here again!</q> <br>-Stephen Chan 2020 Batch 2 Student</p>
+                
+            </div>
         </div>
     
 
@@ -96,12 +111,10 @@
         </div>
   
     
-    <div id="contactUs">
+    <fieldset id="contactUs">
         <p class="conHead">Contact Us<br><br>Whether you have questions or you would just like to say hello, drop us a note.<br><br><br><br><br></p>
-    </div>
-
-    <div>
-        <div class="details"> 
+    
+        <div class="details">
             <div class="contInfo">
                 <div class="callpic">
                     <img src="mobile.PNG" />
@@ -123,15 +136,16 @@
                 <p class="location"><br>Bonifacio Global City, Taguig</p>
             </div>
         </div>
-    </div>
+    </fieldset>
 
-        <div id = "enrollNow">
-            <p class="readyToLearn">Ready to Learn? <br><br></p>
-            <a target="_blank" href = "enroll.html"> Enroll Now! </a>
+    <fieldset id = "enrollNow">
+        <p class="readyToLearn">Ready to Learn? <br><br></p>
+        <a target="_blank" href = "enroll.html"> Enroll Now! </a>
+    </fieldset>
 
-        </div>
+    <div class="copyright">
+        <p>© Avion School 2020.</p>
     </div>
-    
 
 </body>
 </html>

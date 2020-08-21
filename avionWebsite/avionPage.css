@@ -83,7 +83,7 @@ nav>a {
     text-decoration: none;
     letter-spacing: 5px;
     font-weight: bold;
-    font-size: 35px;
+    font-size: 35px; 
    
 }
 
@@ -92,11 +92,6 @@ nav>a:hover{
 }
 /* end of nav bar */
 /*start main*/
-
-body {
-    
-}
-
 
 /*START spacing for each section*/
 
@@ -113,6 +108,7 @@ body {
 /*END spacing for each section*/
 
 /*START homepage */
+
 #aboutPage{
     display: flex;
     flex-flow: column nowrap;
@@ -148,6 +144,7 @@ body {
 /*END homepage */
 
 /* for background video*/
+
 .fullscreen-bg {
     position: fixed;
     top: 0;
@@ -182,10 +179,36 @@ body {
 
 /*end background video*/
 
-/*start process div format*/
+/*start Student format*/
+
+
+
+.stud1 {
+    font-size: 20px;    
+}
+.stud2 {
+    font-size: 20px;
+}
+
+.domPic {
+
+
+}
+.stepPic {
+    flex: 1;
+    text-align: center;
+    font-size: 25px;    
+
+}
+
+/*end Student format*/
+
+/*start Process format*/
 
 #process {
     display: flex;
+    background: rgba(0,0,0,.65)
+    
 }
 
 .admissions {
@@ -221,19 +244,19 @@ body {
     font-size: 25px;
 }
 
-/*end process div format*/
+/*end Process  format*/
 
 /*start Contact Us format*/
 
 #contactUs {
-    margin-top: 550px;
-    margin-left: auto;
-    margin-right: auto;
+    padding-top: 250px;
+    padding-bottom: 250px;
     text-align: center;
     width: 100%;
-    height: 450px;
+    height: 100%;
     font-size: 25px;
-
+    border: black;
+    background: rgba(0,0,0,.7)
 }
 .details {
     display: flex;
@@ -262,19 +285,24 @@ body {
 
 /*end contact info here */
 
-
-
 /*enroll format start*/
 
 #enrollNow {
+    
+    padding-top: 250px;
+    padding-bottom: 250px;
     text-align: center;
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    border: black;
+    background: rgba(0,0,0,.7)
 }
 
 .readyToLearn{
-
+    font-size: 50px;
 }
 
 /*enroll format end*/
-
 
 /*end main*/
