@@ -182,8 +182,33 @@ nav>a:hover{
     font-size: 0.9rem;
     width: 60%;
 }
+#curriculumContainer .op1 {
+    width:500px;
+    height: 70px;
+    top: -35%;
+    position: relative;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.37);
+    background-color: rgba(0, 0, 0, 0.548);
+    border-radius: 20px;
+    font-weight: lighter;
+    font-size: 1rem;
+    font-family: 'Press Start 2P', cursive;
+}
+#curriculumContainer .op1:hover {
+    font-size: 0;
+}
+#curriculumContainer .op1:hover:after {
+    content: attr(data-hover);
+    font-size: 0.9rem;
+    line-height: 28px;
+    font-weight: 200px;
+    background-color:black;
+    color: cyan;
+}
 
-#curriculumContainer .subContainer li{
+/*#curriculumContainer .subContainer li{
     top: -35%;
     position: relative;
     padding: 20px;
@@ -446,6 +471,7 @@ nav>a:hover{
     padding: 10px;
     margin: 20px;
     background-color: rgb(4, 4, 43);
+    border: 2px solid  rgb(4, 4, 43);
     color: white;
     border-radius: 40px;
 }
