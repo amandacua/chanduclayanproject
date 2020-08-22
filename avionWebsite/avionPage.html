@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="avionPage.css">
     <title>Avion School</title>
     <!--ref content : https://avionschool.com/-->
@@ -12,15 +13,15 @@
     <!---->
 </head>
 <body>
-    <div id= "main">
+    <div id= "main" data-aos="fade-up">
 
         <!--navigation bar-->
         <nav>
             <div id = "logo">
-                <a href="#main"> Avion School </a>
+                <a href="#aboutPage"> Avion School </a>
             </div>
 
-            <a href = "#aboutPage"> About </a>
+            <a href = "#curriculum"> About </a>
             <a href = "#students"> Students </a>
             <a href = "#process"> Process </a>
             <a href = "#contactUs"> Contact </a>
@@ -37,115 +38,143 @@
         </div>
 
         <div id="aboutPage">
-            <h1 class = "aboutTitle">Become a software engineer in 12 weeks</h1><br>
+            <h1 class = "aboutTitle">Become a <span>software engineer</span> in 12 weeks</h1><br>
             <div class = "aboutContainer">                  
                 <p class = "aboutSubTitle"> Pay only when you're hired.</p>
                 <p class = "aboutDescription"> Learn the fundamentals of writing code and the skills of the best software engineers. We teach you how to build software, work with teams and apply for top software jobs. </p>
             </div>        
         </div>
     
-        <div id = "curriculum">
+        <div id = "curriculum" data-aos="fade-up">
 
-            <div class = "curriculumContainer">
-                <h1 class = "curriculumTitle">How the Course Works</h1>
-                <p class = "curriculumDescription"> We train you the best practices in software development and provide you with the relevant classes to prepare you for real world needs. Classes are taught by industry experts and is structured to ensure you learn what is required to become a successful software engineer.</p>    
-            </div>
-
-            <div class = "curriculumStructure">
-                <li>Programming Fundamentals</li>
-                <li>Web Foundations</li>
-                <li>Web Application Development</li>
-                <li>Frontend Development</li>
-                <li>Backend Development</li>
-                <li>Career Transitioning</li>
+            <div class = "title">
+                <h1 class = "curriculumTitle"><span>how</span> the course works</h1>
             </div>
             
-        </div>
-    
-        <div id = "statement">
-            <p class="statement">"Investing in unparalleled software talents is at the heart of building a great tech ecosystem."</strong></p>
-            <p class="plaza">- Francis Plaza, CEO of PayMongo</p>
-        </div>
-    
-            
-        <div id = "students">
-            <div class="studDiv">
-                <div class="domPic">
-                    <img src=".png" />
+            <div id = "curriculumContainer">
+
+                <div class = "subContainer">
+                    <p> We train you the <span>best practices</span> in software development and provide you with the relevant classes to prepare you for real world needs. Classes are taught by <span>industry experts</span> and is structured to ensure you learn what is required to become a successful software engineer.</p>    
                 </div>
-                <p class="stud1"><q>SO GOOD. MUCH WOW!</q> <br>-Dominique Duclayan 2020 Batch 2 Student<br><br></p>
+
+                <div class = "subContainer">
+                    <li class="programmingFundamentals" data-hover="JavaScript, CSS, HTMLS">Programming Fundamentals</li>
+                    <li>Web Foundations</li>
+                    <li>Web Application Development</li>
+                    <li>Frontend Development</li>
+                    <li>Backend Development</li>
+                    <li>Career Transitioning</li>
+                </div>
+    
+            </div>
+
+            
+        </div>
+            
+        <div id = "students" data-aos="fade-up">
+
+            <div class = "title">
+                <h1> join the fun </h1>
+                <p>here's what our students think about us</p>
+            </div>
+
+            <div id = "studDiv">
+                <div class = "rev">
+                    <div class="Pic">
+                        <img src="dom.png" width= "200px" height = "200px"  />
+                    </div>
+                    <p class="stud"><q>SO GOOD. MUCH WOW!</q> <br><span class = "className">-Dominique Duclayan 2020 Batch 2 Student </span><br></p>
+    
+                </div>
                
-                <div class="stepPic">
-                    <img src="dp.png" />
+                <div class = "rev">
+                    <div class="Pic">
+                        <img src="dp.png" width= "200px" height = "200px" />
+                    </div>
+                    <p class="stud"><q>10/10 would study here again!</q> <br> <span class = "className">-Stephen Chan 2020 Batch 2 Student </span></p>    
                 </div>
-                <p class="stud2"><q>10/10 would study here again!</q> <br>-Stephen Chan 2020 Batch 2 Student</p>
                 
             </div>
         </div>
     
 
-        <div id = "process">
-            <div class="admissions">
-                <div class="procPic">
-                    <img src="admissions.png" />
-                </div>
-                <p class="headProc"><br><br><strong>Admission</strong><br><br></p>
-                <p>We took the time to make admissions easy: an online application, a 1:1 video interview, a tech challenge and you’re done.</p>
-            </div>
+        <div id = "process" data-aos="fade-up">
 
-            <div  class="bootcamp">
-                <div class="procPic">
-                    <img src="bootcamp.png" />
+            <div class = "processContainer">
+                <div class="admissions">
+                    <div class="procPic">
+                        <img src="admissions.png" />
+                    </div>
+                    <p class="headProc"><br><br><strong>Admission</strong><br><br></p>
+                    <p>We took the time to make admissions easy: an online application, a 1:1 video interview, a tech challenge and you’re done.</p>
                 </div>
-                <p class="headProc"><br><br><strong>Bootcamp</strong><br><br></p>
-                <p>Our course is structured with real world problems in mind. You learn only what’s needed and get taught by top-notch software engineers.</p>
-            </div>
-
-            <div class="career">
-                <div class="procPic">
-                    <img src="career.png" />
+    
+                <div  class="bootcamp">
+                    <div class="procPic">
+                        <img src="bootcamp.png" />
+                    </div>
+                    <p class="headProc"><br><br><strong>Bootcamp</strong><br><br></p>
+                    <p>Our course is structured with real world problems in mind. You learn only what’s needed and get taught by top-notch software engineers.</p>
                 </div>
-                <p class="headProc"><br><br><strong>Career</strong><br><br></p>
-                <p>Tech startups are always on the lookout for engineers which is why we’ve partnered with all the best startups to make finding a job easy.</p>
+    
+                <div class="career">
+                    <div class="procPic">
+                        <img src="career.png" />
+                    </div>
+                    <p class="headProc"><br><br><strong>Career</strong><br><br></p>
+                    <p>Tech startups are always on the lookout for engineers which is why we’ve partnered with all the best startups to make finding a job easy.</p>
+                </div>
             </div>
+           
         </div>
   
     
-    <fieldset id="contactUs">
-        <p class="conHead">Contact Us<br><br>Whether you have questions or you would just like to say hello, drop us a note.<br><br><br><br><br></p>
+    <fieldset id="contactUs" data-aos="fade-up">
+        <h1> contact us</h1>
+        <p class="subTitle"> Whether you have questions or you would just like to say hello, drop us a note </p>
+        <!--<p class="conHead">Contact Us<br><br>Whether you have questions or you would just like to say hello, drop us a note.<br><br><br><br><br></p>-->
+        <div class = "contactDetails">
+            <div class="details">
+                <div class="contInfo">
+                    <div class="callpic">
+                        <img src="mobile.PNG" />
+                    </div>
+                    <p class="title"><br>+63 (917) 317 3012</p>
+                </div>
     
-        <div class="details">
-            <div class="contInfo">
-                <div class="callpic">
-                    <img src="mobile.PNG" />
+                <div class="email">
+                    <div class="callpic">
+                        <img src="email.PNG" />
+                    </div>
+                    <p class="title"></br>hello@avionschool.com</p>
                 </div>
-                <p class="title"><br>+63 (917) 317 3012</p>
-            </div>
-
-            <div class="email">
-                <div class="callpic">
-                    <img src="email.PNG" />
+    
+                <div class="location">
+                    <div class="callpic">
+                        <img src="location.PNG" />
+                    </div>
+                    <p class="location"><br>Bonifacio Global City, Taguig</p>
                 </div>
-                <p class="title"></br>hello@avionschool.com</p>
-            </div>
-
-            <div class="location">
-                <div class="callpic">
-                    <img src="location.PNG" />
-                </div>
-                <p class="location"><br>Bonifacio Global City, Taguig</p>
             </div>
         </div>
+    
     </fieldset>
 
-    <fieldset id = "enrollNow">
-        <p class="readyToLearn">Ready to Learn? <br><br></p>
-        <a target="_blank" href = "enroll.html"> Enroll Now! </a>
+    <fieldset id = "enrollNow" data-aos="fade-up">
+        <h1 class="readyToLearn">ready to learn? </h1>
+        <a target="_blank" href = "survey.html" class = "enrollButton"> Enroll Now! </a>
     </fieldset>
 
-    <div class="copyright">
+    <div class="copyright" >
         <p>© Avion School 2020.</p>
     </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+          offset:400,
+          duration: 3000
+      });
+    </script>
 
 </body>
 </html>
