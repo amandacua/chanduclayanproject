@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avion School Survey</title>
+    <link rel="stylesheet" href="survey.css">
+</head>
+
+
+<body>
+    <div class="fullscreen-bg">
+        <video loop muted autoplay id="myVideo">
+            <source src="titlePageVideo.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <section id="surveyForm">
+        <div class=surveyFormTop>
+            <h1>Avion School Registration Form</h1>
+            <h2><em>Thank you for taking the time to help us improve the platform.</em></h2>
+        </div>
+      
+    
+         <form action="submit.html" method="post">
+    
+            <div class="form-group">
+                <p>Full Name</p>
+                <input type="text" name="name" class="full-name" placeholder="Name"><br>
+            </div>
+    
+            <div class="form-group">
+                <p>Email address</p>
+                <input type="email" name="email" class="e-mail" placeholder="Email"><br>
+            </div>
+    
+            <div class="form-group">
+                <p>Age (optional)</p>
+                <input type="number" name="age" class="age" placeholder="Age"><br>
+            </div>
+    
+            <div class="form-group">
+            <p>Which option best describes your current role?</p>
+            <select name="role" class="choose-role" id="choice">
+                <option disabled selected value>Select an option</option>
+                <option value="student">Student</option>
+                <option value="full-time-job">Full Time Job</option>
+                <option value="full-time-learner">Full Time Learner</option>
+                <option value="prefer-not-say">Prefer not to say</option>
+                <option value="other">Other</option>
+            </select>
+            </div>
+    
+            <!-- Lia's Section -->
+            <div class="form-group">
+            <p>Would you recommend Avion School to a friend?</p>
+            <input type="radio" name="recommend" id="Definitely" value="Definitely" class="input-radio">
+            <label for="Definitely">Definitely</label><br>
+            <input type="radio" name="recommend" id="Maybe" value="Maybe" class="input-radio">
+            <label for="Maybe">Maybe</label><br>
+            <input type="radio" name="recommend" id="Not" value="Not Sure" class="input-radio">
+            <label for="Not">Not Sure</label><br>
+            </div>
+    
+            <div class="form-group">
+            <p>Why would you like to join Avion School?</p>
+            <select class="form-control" id="favorite" name="favorite">
+                <option disabled selected value>Select an option</option>
+                <option value="challenges">Challenges</option>
+                <option value="projects">Projects</option>
+                <option value="community">Community</option>
+                <option value="trainers">Trainers</option>
+            </select>
+            </div>
+    
+            <div class="form-group">
+            <p>
+                What are your interest?
+                <span class="clue">(Check all that apply)</span>
+            </p>
+            <div class="checkboxChoices">
+                <label><input type="checkbox" name="prefer" value="front-end-projects" class="input-checkbox">Front-end Projects</label><br>
+                <label><input type="checkbox" name="prefer" value="back-end-projects" class="input-checkbox">Back-end Projects</label><br>
+                <label><input type="checkbox" name="prefer" value="data-visualization" class="input-checkbox">Data Visualization</label><br>
+                <label><input type="checkbox" name="prefer" value="challenges" class="input-checkbox">Challenges</label><br>
+                <label><input type="checkbox" name="prefer" value="open-source-community" class="input-checkbox">Open Source Community</label><br>
+                <label><input type="checkbox" name="prefer" value="gitter-help-rooms" class="input-checkbox">Gitter help rooms</label><br>
+                <label><input type="checkbox" name="prefer" value="videos" class="input-checkbox">Videos</label><br>
+                <label><input type="checkbox" name="prefer" value="meetings" class="input-checkbox">Meetings</label><br>
+                <label><input type="checkbox" name="prefer" value="wiki" class="input-checkbox">Wiki</label><br>
+                <label><input type="checkbox" name="prefer" value="forum" class="input-checkbox">Forum</label><br>
+                <label><input type="checkbox" name="prefer" value="additional-courses" class="input-checkbox">Additional Courses</label>
+    
+            </div>
+            </div>
+    
+            <div class="form-group">
+            <p>Any comments or suggestions?</p>
+            <textarea id="comments" class="resizedTextbox" name="comment" placeholder="Enter your comment here..."></textarea>
+            </div>
+    
+            <div class="form-group">
+            <button type="submit" id="submit" class="submit-button">Submit</button>
+            </div>
+      </form>  
+    </section> 
+</body>
+</html>

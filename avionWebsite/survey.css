@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,700;1,400&display=swap')
+;
+* {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+.resizedTextbox {
+    width: 700px; height: 400px}
+html{
+    font-size:10px;
+    font-family:'Montserrat', sans-serif;
+    color: white;
+}
+
+
+}
+.form-group ::placeholder{
+    padding: 20px
+}
+.form-group p {
+    font-weight: 500px;
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+#surveyForm {
+    flex-direction: column;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 30px 30px 30px 30px;
+    background: rgba(0, 0, 0, 0.438);
+}
+
+#surveyForm .surveyFormTop{
+    width: 800px;
+    background-color: rgb(13, 1, 41);
+    color: white;
+    margin:auto;
+    padding: 10px 0px 10px 0px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 15px 15px 0px 0px;
+}
+.surveyFormTop p{
+    font-size: 26px;
+}
+.surveyFormTop h2 {
+    font-size:12px;
+}
+#surveyForm .mainForm{
+    background-color: rgba(0, 0, 0, 0.329);
+    width:800px;
+    margin:0 auto;
+}
+
+form{
+    padding:10px;
+}
+
+.formLabel{
+    font-size: 16px;
+    margin-bottom: 30px;
+    width: 125px;
+    margin-left:25px;
+}
+.form-group {
+    width:500px;
+    margin-left: 20px;
+    margin-bottom:30px;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: left;
+}
+.checkBoxChoices{
+    text-align: left;
+}
+.form-group .full-name, .e-mail ,.age{
+    width: 200px;
+    border-radius: 15px;
+    border-width: 2px;
+    border-style: solid;
+    height: 30px;
+}
+
+/* for background video*/
+
+.fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
+
+#myVideo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    #myVideo {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  @media (max-aspect-ratio: 16/9) {
+    #myVideo {
+      width: auto;
+      height: 100%;
+    }
+  }
+
+/*end background video*/
+/*input[type="text"] {
+    width:500px;
+}
+*.name {
+    width: 700px;
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    height: 40px;
+
+}
+/*.name{
+    position:relative;
+    left:20px;
+    line-height:10px;
+    border-radius: 3px;
+    padding: 0 50px;
+    font-size: 16px;
+}
