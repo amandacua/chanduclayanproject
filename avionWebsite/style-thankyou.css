@@ -1,0 +1,38 @@
+@import url('https://arkonx.com/site_assets/css/style_new.css');
+@import url('https://arkonx.com/site_assets/css/util.css');
+@import url('https://arkonx.com/site_assets/css/dashboard2.css');
+
+.avtar {max-width: 100%;}
+
+.jumbotron {background-color: #f5f8fc;}
+.jumbotron h2 {color: #000;font-size: 3em;font-weight: bold;margin: .25em 0;}
+
+.checkMark {-webkit-animation: show 1s linear forwards .5s;-ms-animation: show 1s linear forwards .5s;animation: show 1s linear forwards .5s;border: 2px solid #529c29;border-radius: 50%;height: 100px;margin: 0 auto;padding: 1.5em;width: 100px;}
+.checkMark path {-webkit-animation: draw 0.5s linear forwards 1s;-ms-animation: draw 0.5s linear forwards 1s;animation: draw 0.5s linear forwards 1s;fill: none;stroke: #529c29;stroke-miterlimit: 10;stroke-width: 40px;stroke-dasharray: 500;stroke-dashoffset: 500;}
+.checkMark svg {overflow: visible;}
+
+@keyframes draw {
+  from {stroke-linecap: round;}
+  to {stroke-linecap: round;stroke-dashoffset: 0;}
+}
+@keyframes draw {
+  from {stroke-linecap: round;}
+  to {stroke-linecap: round;stroke-dashoffset: 0;}
+}
+@keyframes draw {
+  from {stroke-linecap: round;}
+  to {stroke-linecap: round;stroke-dashoffset: 0;}
+}
+
+@keyframes show {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@keyframes show {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@keyframes show {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
