@@ -8,21 +8,9 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 
 */
-/*
-Functions to create: 
-rollDice() : function needs to output the dice 
-1. Generate a random number
-2. Output that random numbe
-newGame()
-1. Initialize all to 0 
-hold()
-1. Take in the current scroe on screen 
-2. Move player score to player current score
-*/
+
 const globalScore = document.getElementsByClassName('player-score');
-//const globalScore = document.getElementById('score-1');
 const curScore = document.getElementsByClassName('player-current-score');
-//const curScore = document.getElementById('current-1');
 const dice = document.getElementById('dice');
 const key = document.getElementsByTagName('button');
 const container = document.getElementsByClassName('wrapper clearfix');
@@ -35,84 +23,84 @@ var globeScore = [0,0];
 function rollDice(player){
     var diceFace = (Math.floor(Math.random()*(6-1)) + 1);
     img.src = `dice-${diceFace}.png`;
+    console.log(diceFace);
     
-    if(diceFace === 1){
+    if(diceFace === 1){                         //if rolled a 1, current score is reset to 0 on display and toAdd value to 0. switches players.
         toAdd = 0;
         curScore[player].textContent = toAdd;
-        console.log(player);
         player = switchPlayer(player);
-        console.log(player);
     }else{
-        toAdd = addScore(diceFace,player,toAdd);
+        addScore(diceFace,player);              //else goes into addscore function
     }
 return player;
 }
 
 function addScore(diceFace,player){
-    /*
-    1. Add Score to current player
-    2. Apply the rules that was mention 
-    3. IF fails then switchPlayer()
-    */
+    //adds randomized dice value to current and displays it
     
     toAdd += diceFace;
     curScore[player].textContent = toAdd;
-    
-return toAdd;
 }
 
 function holdScore(player,toAdd){
-    /*
-    1. Identify the current player.
-    2. Assign the current player's score to global score
-    3. call switchPlayer()
-    */
+    //adds the current displayed score to players' global score and displays it.
 
     globeScore[player] = globeScore[player] + toAdd;
     globalScore[player].textContent = globeScore[player];
-    toAdd = 0;
-    curScore[player].textContent = toAdd;
-
-    player = switchPlayer(player);
-
+  
 return player;
 }
 
 function switchPlayer(player){
-/*
-1. Identify the current player
-2. Switch the 'active' statement to active player
-*/
+//changes which player is currently active and also tells the game which player is to move next
+
 var current = document.querySelector('.player-'+player+'-panel');
 current.className = 'player-'+player+'-panel';
 
-if (player === 0){
-    player = 1;
-    current = document.querySelector('.player-'+player+'-panel');
-    current.className = 'player-'+player+'-panel active';
-
-}
-else{
-    player = 0;
-    current = document.querySelector('.player-'+player+'-panel');
-    current.className = 'player-'+player+'-panel active';
-}
+    if (player === 0){
+        player = 1;
+        current = document.querySelector('.player-'+player+'-panel');
+        current.className = 'player-'+player+'-panel active';
+    }
+    else{
+        player = 0;
+        current = document.querySelector('.player-'+player+'-panel');
+        current.className = 'player-'+player+'-panel active';
+    }
 
 return player;
-}
-
-function newGame(){
-    globalScore1.innerHTML = 0;
-    globalScore2.innerHTML = 0;
-    curScore1.innerHTML = 0;
-    curScore2.innerHTML = 0;
 }
 
 document.addEventListener('click', e => {
     const button = e.target.className
     console.log(button)
-    if (button === 'btn-roll'){player = rollDice(player);}
-    if (button === 'btn-hold'){player = holdScore(player,toAdd);}
-    if (button === 'btn-new'){newGame();}
+    if (button === 'btn-roll'){
+        player = rollDice(player);
+    }
+
+    if (button === 'btn-hold'){
+        player = holdScore(player,toAdd);
+        toAdd = 0;
+        curScore[player].textContent = toAdd;
+        player = switchPlayer(player);
+    }
+
+    if (button === 'btn-new'){
+
+        toAdd = 0;                                                              //resets toAdd score on current to 0
+        player = 1;                                                             //resets player 2's status to " "
+            current = document.querySelector('.player-'+player+'-panel');
+            current.className = 'player-'+player+'-panel';
+        player = 0;                                                             //resets player 1's status to active
+            current = document.querySelector('.player-'+player+'-panel');
+            current.className = 'player-'+player+'-panel active';
+
+        for(let i=0;i<2;i++){                                                   //resets all global scores to 0 as well as displays
+            globeScore[i] = 0;
+            globalScore[i].textContent = '0';
+            curScore[i].textContent = '0';
+        }
+
+    }
 })
 
