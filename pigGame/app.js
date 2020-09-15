@@ -8,18 +8,72 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 
 */
-
+/*
+Functions to create: 
+rollDice() : function needs to output the dice 
+1. Generate a random number
+2. Output that random numbe
+newGame()
+1. Initialize all to 0 
+hold()
+1. Take in the current scroe on screen 
+2. Move player score to player current score
+*/
 const globalScore1 = document.getElementById('score-0');
 const globalScore2 = document.getElementById('score-1');
-const curScore1 = document.getElementById('current-1');
+const curScore1 = document.getElementById('current-0');
+const curScore2 = document.getElementById('current-1');
 const dice = document.getElementById('dice');
-const key = document.getElementById()
+const key = document.getElementsByTagName('button')
+const container = document.getElementsByClassName('wrapper clearfix')
+const currentPlayer = document.getElementsByClassName('.player-name')
+console.log(currentPlayer)
  
-console.log(globalScore1,globalScore2)
-console.log(rollDice())
+// console.log(globalScore1,globalScore2)
+// console.log(rollDice())
 
 function rollDice(){
     var diceFace = (Math.floor(Math.random()*(6-1)) + 1)
-    const className = '"'+'image'+diceFace+'.jpg'+'"'
+    const className = 'dice-'+diceFace+'.png'
     document.getElementsByClassName('dice').src = className
+    addScore()
 }
+
+function addScore(){
+     /*
+    1. Add Score to current player
+    2. Apply the rules that was mention 
+    3. IF fails then switchPlayer()
+    */
+}
+
+function holdScore(){
+/*
+1. Identify the current player.
+2. Assign the current player's global score to its current score
+3. call switchPlayer()
+*/
+}
+
+function switchPlayer(){
+/*
+1. Identify the current player
+2. Switch the 'active' statement to active player
+*/
+}
+
+function newGame(){
+    globalScore1.innerHTML = 0
+    globalScore2.innerHTML = 0
+    curScore1.innerHTML = 0
+    curScore2.innerHTML = 0
+}
+
+document.addEventListener('click', e => {
+    const button = e.target.className
+    console.log(button)
+    if (button === 'btn-roll'){rollDice()}
+    if (button === 'btn-hold'){holdScore()}
+    if (button === 'btn-new'){newGame()}
+})
+
