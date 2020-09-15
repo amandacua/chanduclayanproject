@@ -28,42 +28,54 @@ const key = document.getElementsByTagName('button');
 const container = document.getElementsByClassName('wrapper clearfix');
 const currentPlayer = document.getElementsByClassName('.player-name');
 var img = document.querySelector('img');
-player = 0;
-console.log(globalScore,curScore);
+var toAdd = 0;
+var player = 0;
+var globeScore = [0,0];
 
-
-// console.log(globalScore1,globalScore2)
-// console.log(rollDice())
-
-function rollDice(){
+function rollDice(player){
     var diceFace = (Math.floor(Math.random()*(6-1)) + 1);
     img.src = `dice-${diceFace}.png`;
     
-    if(diceFace !== 1)
-        addScore(diceFace,player);
-    else
+    if(diceFace === 1){
+        toAdd = 0;
+        curScore[player].textContent = toAdd;
+        console.log(player);
         player = switchPlayer(player);
+        console.log(player);
+    }else{
+        toAdd = addScore(diceFace,player,toAdd);
+    }
+return player;
 }
 
 function addScore(diceFace,player){
-     /*
+    /*
     1. Add Score to current player
     2. Apply the rules that was mention 
     3. IF fails then switchPlayer()
     */
     
+    toAdd += diceFace;
+    curScore[player].textContent = toAdd;
     
+return toAdd;
 }
 
-function holdScore(player,curScore,globalScore){
+function holdScore(player,toAdd){
     /*
-1. Identify the current player.
-2. Assign the current player's score to global score
-3. call switchPlayer()
-*/
-    globalScore = curScore + globalScore;
-    switchPlayer(player);
+    1. Identify the current player.
+    2. Assign the current player's score to global score
+    3. call switchPlayer()
+    */
 
+    globeScore[player] = globeScore[player] + toAdd;
+    globalScore[player].textContent = globeScore[player];
+    toAdd = 0;
+    curScore[player].textContent = toAdd;
+
+    player = switchPlayer(player);
+
+return player;
 }
 
 function switchPlayer(player){
@@ -72,27 +84,22 @@ function switchPlayer(player){
 2. Switch the 'active' statement to active player
 */
 var current = document.querySelector('.player-'+player+'-panel');
-console.log(current.className);
 current.className = 'player-'+player+'-panel';
-console.log(current.className);
 
 if (player === 0){
     player = 1;
     current = document.querySelector('.player-'+player+'-panel');
-    console.log(current.className);
     current.className = 'player-'+player+'-panel active';
 
 }
 else{
     player = 0;
     current = document.querySelector('.player-'+player+'-panel');
-    console.log(current.className);
     current.className = 'player-'+player+'-panel active';
 }
-console.log(current.className);
+
 return player;
 }
-
 
 function newGame(){
     globalScore1.innerHTML = 0;
@@ -104,8 +111,8 @@ function newGame(){
 document.addEventListener('click', e => {
     const button = e.target.className
     console.log(button)
-    if (button === 'btn-roll'){rollDice();}
-    if (button === 'btn-hold'){holdScore();}
+    if (button === 'btn-roll'){player = rollDice(player);}
+    if (button === 'btn-hold'){player = holdScore(player,toAdd);}
     if (button === 'btn-new'){newGame();}
 })
 
