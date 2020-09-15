@@ -19,15 +19,16 @@ hold()
 1. Take in the current scroe on screen 
 2. Move player score to player current score
 */
-const globalScore1 = document.getElementById('score-0');
-const globalScore2 = document.getElementById('score-1');
-const curScore1 = document.getElementById('current-0');
-const curScore2 = document.getElementById('current-1');
+const globalScore0 = document.getElementById('score-0');
+const globalScore1 = document.getElementById('score-1');
+const curScore0 = document.getElementById('current-0');
+const curScore1 = document.getElementById('current-1');
 const dice = document.getElementById('dice');
 const key = document.getElementsByTagName('button')
 const container = document.getElementsByClassName('wrapper clearfix')
 const currentPlayer = document.getElementsByClassName('.player-name')
 console.log(currentPlayer)
+player = 0;
  
 // console.log(globalScore1,globalScore2)
 // console.log(rollDice())
@@ -47,19 +48,25 @@ function addScore(){
     */
 }
 
-function holdScore(){
-/*
+function holdScore(player,curScore){
+    /*
 1. Identify the current player.
-2. Assign the current player's global score to its current score
+2. Assign the current player's score to global score
 3. call switchPlayer()
 */
+var toAdd = 'curScore'+player + 'globalScore'+player;
+    switchPlayer(player);
 }
 
-function switchPlayer(){
+function switchPlayer(player){
 /*
 1. Identify the current player
 2. Switch the 'active' statement to active player
 */
+if (player === 0)
+    return player = 1;
+else
+    return player = 0;
 }
 
 function newGame(){
