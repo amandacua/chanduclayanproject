@@ -71,22 +71,44 @@ current.className = 'player-'+player+'-panel';
 return player;
 }
 
+function winCondition(player,globeScore){
+var win = null;
+
+    if(globeScore[player] >= 100){              //check if score reach or exceeded 100
+        win = player;                           //assigns player currently being checked as winner if exceeded or reached 100
+    }
+
+return win;
+}
+
+function displayWin(win){                       //display winner
+
+    if (win === 0){
+        //display win player 1
+    }else
+    if (win === 1){
+        //display win player 2
+    }
+}
+
 document.addEventListener('click', e => {
     const button = e.target.className
     console.log(button)
     if (button === 'btn-roll'){
-        player = rollDice(player);
+        player = rollDice(player);              //go to rollDice function
     }
 
     if (button === 'btn-hold'){
-        player = holdScore(player,toAdd);
-        toAdd = 0;
-        curScore[player].textContent = toAdd;
-        player = switchPlayer(player);
+        player = holdScore(player,toAdd);       //go to holdScore function
+        toAdd = 0;                              //reset to Add to 0
+        curScore[player].textContent = toAdd;   //reset current score display to 0
+        win = winCondition(player,globeScore);  //check winCondition
+        displayWin(win);                        //display if winner
+        player = switchPlayer(player);          //switch players
     }
 
     if (button === 'btn-new'){
-
+        win = null;
         toAdd = 0;                                                              //resets toAdd score on current to 0
         player = 1;                                                             //resets player 2's status to " "
             current = document.querySelector('.player-'+player+'-panel');
