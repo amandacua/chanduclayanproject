@@ -19,34 +19,40 @@ hold()
 1. Take in the current scroe on screen 
 2. Move player score to player current score
 */
-const globalScore0 = document.getElementById('score-0');
-const globalScore1 = document.getElementById('score-1');
-const curScore0 = document.getElementById('current-0');
-const curScore1 = document.getElementById('current-1');
+const globalScore = document.getElementsByClassName('player-score');
+//const globalScore = document.getElementById('score-1');
+const curScore = document.getElementsByClassName('player-current-score');
+//const curScore = document.getElementById('current-1');
 const dice = document.getElementById('dice');
-const key = document.getElementsByTagName('button')
-const container = document.getElementsByClassName('wrapper clearfix')
-const currentPlayer = document.getElementsByClassName('.player-name')
-var img = document.querySelector('img')
-player = 1;
-
+const key = document.getElementsByTagName('button');
+const container = document.getElementsByClassName('wrapper clearfix');
+const currentPlayer = document.getElementsByClassName('.player-name');
+var img = document.querySelector('img');
+player = 0;
+console.log(globalScore,curScore);
 
 
 // console.log(globalScore1,globalScore2)
 // console.log(rollDice())
 
 function rollDice(){
-    var diceFace = (Math.floor(Math.random()*(6-1)) + 1)
-    img.src = `dice-${diceFace}.png`  
-    addScore(diceFace)
+    var diceFace = (Math.floor(Math.random()*(6-1)) + 1);
+    img.src = `dice-${diceFace}.png`;
+    
+    if(diceFace !== 1)
+        addScore(diceFace,player);
+    else
+        player = switchPlayer(player);
 }
 
-function addScore(){
+function addScore(diceFace,player){
      /*
     1. Add Score to current player
     2. Apply the rules that was mention 
     3. IF fails then switchPlayer()
     */
+    
+    
 }
 
 function holdScore(player,curScore,globalScore){
@@ -55,8 +61,9 @@ function holdScore(player,curScore,globalScore){
 2. Assign the current player's score to global score
 3. call switchPlayer()
 */
-var toAdd = 'curScore'+player + 'globalScore'+player;
+    globalScore = curScore + globalScore;
     switchPlayer(player);
+
 }
 
 function switchPlayer(player){
@@ -64,19 +71,22 @@ function switchPlayer(player){
 1. Identify the current player
 2. Switch the 'active' statement to active player
 */
-var current = document.getElementsByClassName('player-'+player+'-panel');
+var current = document.querySelector('.player-'+player+'-panel');
+console.log(current.className);
 current.className = 'player-'+player+'-panel';
 console.log(current.className);
 
 if (player === 0){
     player = 1;
-    current = document.getElementsByClassName('player-'+player+'-panel');
+    current = document.querySelector('.player-'+player+'-panel');
+    console.log(current.className);
     current.className = 'player-'+player+'-panel active';
 
 }
 else{
     player = 0;
-    current = document.getElementsByClassName('player-'+player+'-panel');
+    current = document.querySelector('.player-'+player+'-panel');
+    console.log(current.className);
     current.className = 'player-'+player+'-panel active';
 }
 console.log(current.className);
@@ -85,17 +95,17 @@ return player;
 
 
 function newGame(){
-    globalScore1.innerHTML = 0
-    globalScore2.innerHTML = 0
-    curScore1.innerHTML = 0
-    curScore2.innerHTML = 0
+    globalScore1.innerHTML = 0;
+    globalScore2.innerHTML = 0;
+    curScore1.innerHTML = 0;
+    curScore2.innerHTML = 0;
 }
 
 document.addEventListener('click', e => {
     const button = e.target.className
     console.log(button)
-    if (button === 'btn-roll'){rollDice()}
-    if (button === 'btn-hold'){holdScore()}
-    if (button === 'btn-new'){newGame()}
+    if (button === 'btn-roll'){rollDice();}
+    if (button === 'btn-hold'){holdScore();}
+    if (button === 'btn-new'){newGame();}
 })
 
