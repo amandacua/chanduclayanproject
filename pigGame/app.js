@@ -27,9 +27,10 @@ const dice = document.getElementById('dice');
 const key = document.getElementsByTagName('button')
 const container = document.getElementsByClassName('wrapper clearfix')
 const currentPlayer = document.getElementsByClassName('.player-name')
-console.log(currentPlayer)
-player = 0;
- 
+player = 1;
+
+
+
 // console.log(globalScore1,globalScore2)
 // console.log(rollDice())
 
@@ -37,7 +38,9 @@ function rollDice(){
     var diceFace = (Math.floor(Math.random()*(6-1)) + 1)
     const className = 'dice-'+diceFace+'.png'
     document.getElementsByClassName('dice').src = className
-    addScore()
+    //addScore()
+    player = switchPlayer(player);
+    
 }
 
 function addScore(){
@@ -48,7 +51,7 @@ function addScore(){
     */
 }
 
-function holdScore(player,curScore){
+function holdScore(player,curScore,globalScore){
     /*
 1. Identify the current player.
 2. Assign the current player's score to global score
@@ -63,11 +66,25 @@ function switchPlayer(player){
 1. Identify the current player
 2. Switch the 'active' statement to active player
 */
-if (player === 0)
-    return player = 1;
-else
-    return player = 0;
+var current = document.getElementsByClassName('player-'+player+'-panel');
+current.className = 'player-'+player+'-panel';
+console.log(current.className);
+
+if (player === 0){
+    player = 1;
+    current = document.getElementsByClassName('player-'+player+'-panel');
+    current.className = 'player-'+player+'-panel active';
+
 }
+else{
+    player = 0;
+    current = document.getElementsByClassName('player-'+player+'-panel');
+    current.className = 'player-'+player+'-panel active';
+}
+console.log(current.className);
+return player;
+}
+
 
 function newGame(){
     globalScore1.innerHTML = 0
