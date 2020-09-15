@@ -27,6 +27,7 @@ const dice = document.getElementById('dice');
 const key = document.getElementsByTagName('button')
 const container = document.getElementsByClassName('wrapper clearfix')
 const currentPlayer = document.getElementsByClassName('.player-name')
+var img = document.querySelector('img')
 player = 1;
 
 
@@ -36,11 +37,8 @@ player = 1;
 
 function rollDice(){
     var diceFace = (Math.floor(Math.random()*(6-1)) + 1)
-    const className = 'dice-'+diceFace+'.png'
-    document.getElementsByClassName('dice').src = className
-    //addScore()
-    player = switchPlayer(player);
-    
+    img.src = `dice-${diceFace}.png`  
+    addScore(diceFace)
 }
 
 function addScore(){
