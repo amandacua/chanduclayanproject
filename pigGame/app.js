@@ -1,34 +1,33 @@
 const globalScore = document.getElementsByClassName('player-score');
 const curScore = document.getElementsByClassName('player-current-score');
-const dice = document.getElementById('dice');
-const key = document.getElementsByTagName('button');
-const container = document.getElementsByClassName('wrapper clearfix');
-const currentPlayer = document.getElementsByClassName('.player-name');
-var img = document.querySelector('img');
+
 var toAdd = 0;
 var player = 0;
 var globeScore = [0,0];
 
 function rollDice(player){
+    var isOne = false   //checks if there is 1
+    var total = 0       //declare total
 
-    var total = 0
     for (let i = 0 ; i < 2 ; i++){
         var diceFace = (Math.floor(Math.random()*(6-1)) + 1);  // generates a random number
         var dice = document.getElementById(`dice-${i}`)        // takes the current dice
         dice.src = `dice-${diceFace}.png`                      // changes src image
-        total+=diceFace
 
-        if(diceFace === 1){                         //if rolled a 1, current score is reset to 0 on display and toAdd value to 0. switches players.
-            curScore[player].textContent = 0;
-            player = switchPlayer(player);
-            toAdd = 0
-        }
+        if (diceFace === 1){isOne = true}
+        total+=diceFace
     }
 
-        curScore[player].textContent = (toAdd += total);
-
-    console.log(player)
-
+    if(isOne === true){                         //if rolled a 1, current score is reset to 0 on display and toAdd value to 0. switches players.
+        curScore[0].textContent = 0;            // sets all the cur score to 0 if 1 is seen
+        curScore[1].textContent = 0;
+        player = switchPlayer(player);
+        toAdd = 0
+        total = 0
+    }else {
+        curScore[player].textContent = (toAdd += total)
+    }
+    
 return player;
 }
 
@@ -50,7 +49,7 @@ return player;
 
 function winCondition(player,globeScore){
     var win = null;
-        if(globeScore[player] >= 10){              //check if score reach or exceeded 100
+        if(globeScore[player] >= 100){              //check if score reach or exceeded 100
             win = player;
             displayWin(win)                           //assigns player currently being checked as winner if exceeded or reached 100
         }
