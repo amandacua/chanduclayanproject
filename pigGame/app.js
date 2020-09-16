@@ -9,27 +9,26 @@ var toAdd = 0;
 var player = 0;
 var globeScore = [0,0];
 
-addDice()
-
-function addDice(){
-    let newDice = document.createElement('img')
-    let parentNode = document.getElementsByTagName('img').parentElement
-    newDice.setAttribute('src','dice-6.png')
-    newDice.setAttribute('class', 'dice' )
-    console.log(newDice)
-    console.log(parentNode)
-}
 function rollDice(player){
-    var diceFace = (Math.floor(Math.random()*(6-1)) + 1);
-    img.src = `dice-${diceFace}.png`;
-    console.log(diceFace);
-    
-    if(diceFace === 1){                         //if rolled a 1, current score is reset to 0 on display and toAdd value to 0. switches players.
-        curScore[player].textContent = 0;
-        player = switchPlayer(player);
-    }else{
-        curScore[player].textContent = (toAdd += diceFace);
+
+    var total = 0
+    for (let i = 0 ; i < 2 ; i++){
+        var diceFace = (Math.floor(Math.random()*(6-1)) + 1);  // generates a random number
+        var dice = document.getElementById(`dice-${i}`)        // takes the current dice
+        dice.src = `dice-${diceFace}.png`                      // changes src image
+        total+=diceFace
+
+        if(diceFace === 1){                         //if rolled a 1, current score is reset to 0 on display and toAdd value to 0. switches players.
+            curScore[player].textContent = 0;
+            player = switchPlayer(player);
+            toAdd = 0
+        }
     }
+
+        curScore[player].textContent = (toAdd += total);
+
+    console.log(player)
+
 return player;
 }
 
@@ -59,8 +58,8 @@ function winCondition(player,globeScore){
 }
 
 function displayWin(win){        
-    document.getElementById(`name-${win}`).innerHTML = `Player ${win+1} Won`
-    setTimeout(newGame,1000)
+    document.getElementById(`name-${win}`).parentElement.className= `winner`
+    // setTimeout(newGame,1000)
 }
 
 function newGame(){
