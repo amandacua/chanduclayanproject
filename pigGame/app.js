@@ -49,7 +49,7 @@ return player;
 
 function winCondition(player,globeScore){
     var win = null;
-        if(globeScore[player] >= 100){              //check if score reach or exceeded 100
+        if(globeScore[player] >= 10){              //check if score reach or exceeded 100
             win = player;
             displayWin(win)                           //assigns player currently being checked as winner if exceeded or reached 100
         }
@@ -57,8 +57,10 @@ function winCondition(player,globeScore){
 }
 
 function displayWin(win){        
-    document.getElementById(`name-${win}`).parentElement.className= `winner`
+    // document.getElementById(`name-${win}`).parentElement.className= `winner`
     // setTimeout(newGame,1000)
+    document.getElementById(`name-${win}`).innerHTML= `Congrats Player ${win+1}`
+    setTimeout(newGame,1000)
 }
 
 function newGame(){
