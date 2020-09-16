@@ -51,6 +51,7 @@ function winCondition(player,globeScore){
     var win = null;
         if(globeScore[player] >= 10){              //check if score reach or exceeded 100
             win = player;
+            console.log('winner' + win)
             displayWin(win)                           //assigns player currently being checked as winner if exceeded or reached 100
         }
     return win;
@@ -59,8 +60,24 @@ function winCondition(player,globeScore){
 function displayWin(win){        
     // document.getElementById(`name-${win}`).parentElement.className= `winner`
     // setTimeout(newGame,1000)
-    document.getElementById(`name-${win}`).innerHTML= `Congrats Player ${win+1}`
-    setTimeout(newGame,1000)
+    document.getElementById(`name-${win}`).parentElement.className= `winner`
+    if(win === 1){
+        let loser = document.getElementById(`name-${win-1}`).parentElement
+        loser.style.display= 'none';
+    } else {
+        let loser = document.getElementById(`name-${win+1}`).parentElement
+        loser.style.display= 'none';
+    }
+    let button = document.getElementsByTagName("button")
+    let img = document.getElementsByTagName('img')
+    img[0].hidden = true;
+    img[1].style.hidden = true;
+    for (i = 1 ; i <= button.length ; i++){
+        button[i].style.hidden = true;
+    }
+    document.getElementById('diceContainer').style.display= 'none';
+    // document.getElementsByClassName()
+    // setTimeout(newGame,1000)
 }
 
 function newGame(){
