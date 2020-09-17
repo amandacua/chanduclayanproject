@@ -7,7 +7,6 @@ var globeScore = [0,0];
 
 function rollDice(player){
     var isOne = false;   //checks if there is 1
-    // var total = 0       //declare total
 
     for (let i = 0 ; i < 2 ; i++){
         var diceFace = (Math.floor(Math.random()*(6-1)) + 1);  // generates a random number
@@ -16,8 +15,9 @@ function rollDice(player){
 
         if (diceFace === 1){
             isOne = true;
+        }else{
+            toAdd+=diceFace;
         }
-        toAdd+=diceFace;
     }
 
     if(isOne === true){                         //if rolled a 1, current score is reset to 0 on display and toAdd value to 0. switches players.
@@ -27,37 +27,37 @@ function rollDice(player){
         total = 0;
     }else {
         curScore[player].textContent = toAdd;
-        console.log(curScore[1].textContent);
     }
-    
-return player;
+
+    return player;
 }
 
 function holdScore(player){
     globalScore[player].textContent = (globeScore[player] += parseFloat(curScore[player].textContent));    //adds the current displayed score to players' global score and displays it.
-return player;
+    return player;
 }
 
 function switchPlayer(player){
     document.querySelector(`.player-${player}-panel`).className = `player-${player}-panel`;         // remove active from current player
     player = ( player === 0 ) ? 1 : 0;                                                              //if player =0 then change to 1 else change to 0
     document.querySelector(`.player-${player}-panel`).className = `player-${player}-panel active`;  //add active to next player
-return player;
+    return player;
 }
 
 function winCheck(player){
     var win = null;
-        if(globeScore[player] >= 20){              //check if score reach or exceeded 100
-            win = player;
-            player = displayWin(win);                        //assigns player currently being checked as winner if exceeded or reached 100
-        }else
-            player = switchPlayer(player);          //switch players
+    if(globeScore[player] >= 100){              //check if score reach or exceeded 100
+        win = player;
+        player = displayWin(win);                        //assigns player currently being checked as winner if exceeded or reached 100
+    }else{
+        player = switchPlayer(player);          //switch players
+    }
     return player;
 }
 
 function displayWin(win){  
-        alert(`Player ${win+1} wins!`);
-        player = newGame();
+    alert(`Player ${win+1} wins!`);
+    player = newGame();
     return player;
 }
 
@@ -65,7 +65,7 @@ function newGame(){
     
     globalScore[0].parentElement.className = 'player-0-panel active';
     globalScore[1].parentElement.className = 'player-1-panel';
-        
+            
         for(let i=0;i<2;i++){
             globeScore[i] = 0;                  //resets all global scores to 0 as well as displays
             globalScore[i].textContent = '0';   //resets all displays to 0
@@ -75,6 +75,7 @@ function newGame(){
         //resets values to default starting values
         win = null; 
         player = 0;
+
     return player;
 }
 
@@ -83,16 +84,12 @@ document.addEventListener('click', e => {
     console.log(button);
     if (button === 'btn-roll'){
         player = rollDice(player);              //go to rollDice function
-    }
-
-    if (button === 'btn-hold'){
+    } else if (button === 'btn-hold'){
         player = holdScore(player);       //go to holdScore function
         toAdd = 0;                              //reset to Add to 0
         curScore[player].textContent = toAdd;   //reset current score display to 0
         player = winCheck(player);        //check winCondition
-    }
-
-    if (button === 'btn-new' || button ==='alert'){
+    } else if (button === 'btn-new' || button ==='alert'){
         player = newGame();    
         toAdd = 0;                                                 
     }
