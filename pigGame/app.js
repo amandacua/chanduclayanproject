@@ -26,14 +26,15 @@ function rollDice(player){
         toAdd = 0;
         total = 0;
     }else {
-        curScore[player].textContent = (toAdd);
+        curScore[player].textContent = toAdd;
+        console.log(curScore[1].textContent);
     }
     
 return player;
 }
 
-function holdScore(player,toAdd){
-    globalScore[player].textContent = (globeScore[player] += toAdd);    //adds the current displayed score to players' global score and displays it.
+function holdScore(player){
+    globalScore[player].textContent = (globeScore[player] += parseFloat(curScore[player].textContent));    //adds the current displayed score to players' global score and displays it.
 return player;
 }
 
@@ -60,7 +61,7 @@ function displayWin(win){
     return player;
 }
 
-function newGame(player){
+function newGame(){
     
     globalScore[0].parentElement.className = 'player-0-panel active';
     globalScore[1].parentElement.className = 'player-1-panel';
@@ -72,8 +73,7 @@ function newGame(player){
         }
 
         //resets values to default starting values
-        win = null;
-        toAdd = 0;  
+        win = null; 
         player = 0;
     return player;
 }
@@ -86,13 +86,14 @@ document.addEventListener('click', e => {
     }
 
     if (button === 'btn-hold'){
-        player = holdScore(player,toAdd);       //go to holdScore function
+        player = holdScore(player);       //go to holdScore function
         toAdd = 0;                              //reset to Add to 0
         curScore[player].textContent = toAdd;   //reset current score display to 0
         player = winCheck(player);        //check winCondition
     }
 
     if (button === 'btn-new' || button ==='alert'){
-        player = newGame(player);                                                    
+        player = newGame();    
+        toAdd = 0;                                                 
     }
 })
