@@ -46,31 +46,36 @@ return player;
 
 function winCheck(player){
     var win = null;
-        if(globeScore[player] >= 100){              //check if score reach or exceeded 100
+        if(globeScore[player] >= 20){              //check if score reach or exceeded 100
             win = player;
-            displayWin(win);                        //assigns player currently being checked as winner if exceeded or reached 100
-        }
+            player = displayWin(win);                        //assigns player currently being checked as winner if exceeded or reached 100
+        }else
+            player = switchPlayer(player);          //switch players
+    return player;
 }
 
 function displayWin(win){  
-    alert(`Player ${win+1} wins!`);
-    newGame();
+        alert(`Player ${win+1} wins!`);
+        player = newGame();
+    return player;
 }
 
 function newGame(player){
+    
     globalScore[0].parentElement.className = 'player-0-panel active';
     globalScore[1].parentElement.className = 'player-1-panel';
         
-    for(let i=0;i<2;i++){
-        globeScore[i] = 0;                  //resets all global scores to 0 as well as displays
-        globalScore[i].textContent = '0';   //resets all displays to 0
-        curScore[i].textContent = '0';
-    }
+        for(let i=0;i<2;i++){
+            globeScore[i] = 0;                  //resets all global scores to 0 as well as displays
+            globalScore[i].textContent = '0';   //resets all displays to 0
+            curScore[i].textContent = '0';
+        }
 
-    //resets values to default starting values
-    win = null;
-    toAdd = 0;  
-    player = 0;
+        //resets values to default starting values
+        win = null;
+        toAdd = 0;  
+        player = 0;
+    return player;
 }
 
 document.addEventListener('click', e => {
@@ -84,11 +89,10 @@ document.addEventListener('click', e => {
         player = holdScore(player,toAdd);       //go to holdScore function
         toAdd = 0;                              //reset to Add to 0
         curScore[player].textContent = toAdd;   //reset current score display to 0
-        winCheck(player);        //check winCondition
-        player = switchPlayer(player);          //switch players
+        player = winCheck(player);        //check winCondition
     }
 
     if (button === 'btn-new' || button ==='alert'){
-        newGame(player);                                                    
+        player = newGame(player);                                                    
     }
 })
